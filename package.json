@@ -27,9 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/philcockfield/storybook-host"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-storybook",
+    "helper",
+    "ui"
+  ],
   "author": {
     "name": "Phil Cockfield",
     "email": "phil@cockfield.net",
