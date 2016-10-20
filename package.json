@@ -1,0 +1,40 @@
+{
+  "name": "storybook-host",
+  "version": "1.0.0",
+  "description": "A React Storybook decorator with helpful display options for hosting components under test",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "scripts": {
+    "start": "node .",
+    "watch": "nodemon . -e js,jsx --ignore src",
+    "test": "./node_modules/mocha/bin/mocha --require ts-node/register --watch-extensions ts,tsx 'src/**/*.test.ts{,x}'",
+    "tdd": "npm run test -- --reporter min --watch",
+    "lint": "node ./node_modules/tslint/bin/tslint 'src/**/*.ts{,x}' --format verbose",
+    "build": "rm -rf ./lib && node ./node_modules/typescript/bin/tsc",
+    "prepublish": "npm run lint && npm test && npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^6.0.45",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "ts-node": "^1.4.1",
+    "tslint": "^3.15.1",
+    "tslint-react": "^1.0.0",
+    "typescript": "^2.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Phil Cockfield",
+    "email": "phil@cockfield.net",
+    "url": "https://github.com/philcockfield/modules"
+  },
+  "homepage": "",
+  "license": "MIT"
+}

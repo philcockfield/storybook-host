@@ -1,0 +1,16 @@
+{
+  "extends": "tslint:latest",
+  "rulesDirectory": [
+    "./node_modules/tslint-react/rules"
+  ],
+  "rules": {
+    "no-consecutive-blank-lines": false,
+    "no-var-requires": false,
+    "object-literal-sort-keys": false,
+    "quotemark": [true, "single"],
+    "jsx-no-lambda": true,
+    "no-shadowed-variable": false,
+    "ordered-imports": false,
+    "only-arrow-functions": false
+  }
+}
