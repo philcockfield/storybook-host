@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Fixed
 #### Security
 
-## [0.0.1] - YYYY-MM-DD
+
+## [1.0.0] - 2016-10-21
 #### Added
-Initial creation and publish.
+- `<ComponentHost>` initial release.
