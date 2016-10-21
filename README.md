@@ -12,7 +12,7 @@ for hosting components under test.
 
 ## Try in Storybook
 
-   npm start
+    npm start
 
 ## Usage
 
@@ -39,51 +39,50 @@ storiesOf('helpers.storybook', module)
 
 ## Properties
 
-### `title: string`
+#### `title: string`
 The title display that is displayed at the top of the window.
 Use this to to name and provide a decription of the component under test.
 
-### `hr: boolean`
+#### `hr: boolean`
 Flag indicating if the horizontal rule under the title should be shown.  Default: `true`.
 
 
-### `align: string [x y]`
+#### `align: string [x y]`
 A string indicating how to align the component within the host. The string takes to parts (x:y) 
-seperated by a space. The order of horizontal vs vertical does not matter, 
+seperated by a space. The order of horizontal vs. vertical does not matter, 
 eg `top left` is the same as `left top`.
 
-#### Horizontal (X)
-- left
-- center
-- right
+- Horizontal (X)
+    - `left`
+    - `center`
+    - `right`
+- Vertical (Y)
+    - `top`
+    - `middle`
+    - `bottom`
 
-#### Vertical (Y)
-- top
-- middle
-- bottom
 
-
-### `width: number | string | undefined`
+#### `width: number | string | undefined`
 The width to lock the component at, eg: `400` (number as pixels) or `400px` or `100%`.
 
-### `height: number | string | undefined`
+#### `height: number | string | undefined`
 The height to lock the component at, eg: `200` (number as pixels) or `200px` or `100%`.
 
-### `background: boolean | number | string`
+#### `background: boolean | number | string`
 The background color to draw behind the component.
 - `true`: ruby red (eg. `rgba(255, 0, 0, 0.1)`).  Useful for quick visualization of component size.  
 - `string`: A CSS background-color value.
 - `number (-1:black..0..1:white)`
 
-### `background: boolean | number | string`
+#### `background: boolean | number | string`
 The background color of the entire host panel. Same value types as `background`.
 
-### `cropMarks: boolean`
+#### `cropMarks: boolean`
 Flag indicating if the crop-marks should be visible. Default: `true`.
 
-### `border: string | number | boolean`
+#### `border: string | number | boolean`
 Optional border for the component.
 
-### `padding: number | string`
+#### `padding: number | string`
 The padding of the host container.
 
