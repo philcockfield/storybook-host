@@ -31,7 +31,7 @@ storiesOf(STORY_TITLE, module)
     border: -0.1,
     // border: true,
   }))
-  .add('ComponentHost', () => {
+  .add('MyComponent', () => {
     return el;
   });
 

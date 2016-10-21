@@ -32,7 +32,7 @@ storiesOf('helpers.storybook', module)
 
 ```
 
-![Screen Shot](https://cloud.githubusercontent.com/assets/185555/19572867/7a788372-9760-11e6-8196-5a0974541d58.png)
+![Screen Shot](https://cloud.githubusercontent.com/assets/185555/19583290/dc0041fc-9797-11e6-9893-62bb03822eca.png)
 
 
 
