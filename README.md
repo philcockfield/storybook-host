@@ -4,15 +4,86 @@
 A [React Storybook](https://getstorybook.io/) decorator with helpful display options
 for hosting components under test.
 
+
+
+## Install
+
+    npm install -D storybook-host
+
+## Try in Storybook
+
+   npm start
+
+## Usage
+
+```js
+import { storiesOf } from '@kadira/storybook'
+import { host } from 'storybook-host';
+import { MyComponent } from './MyComponent'
+
+storiesOf('helpers.storybook', module)
+  .addDecorator(host({
+    title: 'A host container for components under test.',
+    align: 'center bottom',
+    height: '80%',
+    width: 400,
+  }))
+  .add('Component', () => <MyComponent/>);
+
+```
+
 ![Screen Shot](https://cloud.githubusercontent.com/assets/185555/19572867/7a788372-9760-11e6-8196-5a0974541d58.png)
 
 
-## Run
-    npm install
-    npm start
 
 
-## Tests
-    npm test
+## Properties
 
+### `title: string`
+The title display that is displayed at the top of the window.
+Use this to to name and provide a decription of the component under test.
+
+### `hr: boolean`
+Flag indicating if the horizontal rule under the title should be shown.  Default: `true`.
+
+
+### `align: string [x y]`
+A string indicating how to align the component within the host. The string takes to parts (x:y) 
+seperated by a space. The order of horizontal vs vertical does not matter, 
+eg `top left` is the same as `left top`.
+
+#### Horizontal (X)
+- left
+- center
+- right
+
+#### Vertical (Y)
+- top
+- middle
+- bottom
+
+
+### `width: number | string | undefined`
+The width to lock the component at, eg: `400` (number as pixels) or `400px` or `100%`.
+
+### `height: number | string | undefined`
+The height to lock the component at, eg: `200` (number as pixels) or `200px` or `100%`.
+
+### `background: boolean | number | string`
+The background color to draw behind the component.
+- `true`: ruby red (eg. `rgba(255, 0, 0, 0.1)`).  Useful for quick visualization of component size.  
+- `string`: A CSS background-color value.
+- `number (-1:black..0..1:white)`
+
+### `background: boolean | number | string`
+The background color of the entire host panel. Same value types as `background`.
+
+### `cropMarks: boolean`
+Flag indicating if the crop-marks should be visible. Default: `true`.
+
+### `border: string | number | boolean`
+Optional border for the component.
+
+### `padding: number | string`
+The padding of the host container.
 
