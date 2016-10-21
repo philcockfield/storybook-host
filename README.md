@@ -48,7 +48,7 @@ Flag indicating if the horizontal rule under the title should be shown.  Default
 
 
 #### `align: string [x y]`
-A string indicating how to align the component within the host. The string takes to parts (x:y) 
+A string indicating how to align the component within the host. The string takes to parts (`x` and `y`) 
 seperated by a space. The order of horizontal vs. vertical does not matter, 
 eg `top left` is the same as `left top`.
 
