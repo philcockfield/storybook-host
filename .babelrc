@@ -1,0 +1,21 @@
+{
+  "passPerPreset": true,
+  "presets": [
+    "es2015",
+    "es2016",
+    "react"
+  ],
+  "plugins": [
+    "syntax-trailing-function-commas",
+    "syntax-async-functions",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-regenerator",
+    "transform-es2015-destructuring",
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true
+    }]
+  ]
+}

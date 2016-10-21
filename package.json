@@ -9,7 +9,9 @@
     "test": "./node_modules/mocha/bin/mocha --require ts-node/register --watch-extensions ts,tsx 'src/**/*.test.ts{,x}'",
     "tdd": "npm run test -- --reporter min --watch",
     "lint": "node ./node_modules/tslint/bin/tslint 'src/**/*.ts{,x}' --format verbose",
-    "build": "rm -rf ./lib && node ./node_modules/typescript/bin/tsc",
+    "build:typescript": "rm -rf ./lib && node ./node_modules/typescript/bin/tsc",
+    "build:babel": "node ./node_modules/babel-cli/bin/babel ./lib -d ./lib",
+    "build": "npm run build:typescript && npm run build:babel",
     "prepublish": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
@@ -32,9 +34,10 @@
     "@types/react-dom": "^0.14.18",
     "@types/tinycolor": "^1.1.27",
     "chai": "^3.5.0",
+    "js-babel": "^6.1.0",
+    "js-typescript": "^2.2.0",
     "mobx": "^2.6.0",
     "mobx-react-devtools": "^4.2.9",
-    "js-typescript": "^2.2.0",
     "mocha": "^3.0.2"
   },
   "repository": {
