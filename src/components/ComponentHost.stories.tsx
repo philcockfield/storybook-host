@@ -12,7 +12,6 @@ const el = (
   }}>Hello</div>
 );
 
-
 storiesOf(STORY_TITLE, module)
   .addDecorator(host({
     title: 'A host container for components under test.',
@@ -30,6 +29,7 @@ storiesOf(STORY_TITLE, module)
     // cropMarks: false,
     // border: 'dashed 1px red',
     border: -0.1,
+    // border: true,
   }))
   .add('ComponentHost', () => {
     return el;

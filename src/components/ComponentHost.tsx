@@ -17,7 +17,7 @@ export interface IHostProps {
   background?: string | number | boolean;
   backdrop?: string | number | boolean;
   cropMarks?: boolean;
-  border?: NumberOrString; // Number between -1 (black) and 1 (white).
+  border?: string | number | boolean; // Number between -1 (black) and 1 (white).
   styles?: any; // NB: For inserting global <styles>.
 }
 
@@ -60,9 +60,13 @@ const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
     ? 'rgba(255, 255, 255, 0.7)'
     : 'rgba(0, 0, 0, 0.6)';
 
-  const componentBorder = R.is(Number, border)
-    ? `solid 1px ${color.toGrayAlpha(border as number)}`
-    : border as string;
+  let componentBorder = border as string;
+  if (R.is(Number, border)) {
+    componentBorder = `solid 1px ${color.toGrayAlpha(border as number)}`;
+  }
+  if (border === true) {
+    componentBorder = `dashed 1px rgba(0, 0, 0, 0.2)`;
+  }
 
   const styles = css({
     base: {
