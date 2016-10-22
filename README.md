@@ -39,6 +39,22 @@ storiesOf('helpers.storybook', module)
 
 ## Properties
 
+```js
+host({
+  title: <string>,
+  hr: <boolean>,
+  align: <string>,
+  height: <number | string>,
+  width: <number | string>,
+  background: <boolean | number | string>,
+  backdrop: <boolean | number | string>,
+  cropMarks: <boolean>,
+  border: <boolean | number | string>,
+  padding: <number | string>,
+});
+```
+
+
 #### `title: string`
 The title display that is displayed at the top of the window.
 Use this to to name and provide a decription of the component under test.
@@ -74,7 +90,7 @@ The background color to draw behind the component.
 - `string`: A CSS background-color value.
 - `number (-1:black..0..1:white)`
 
-#### `background: boolean | number | string`
+#### `backdrop: boolean | number | string`
 The background color of the entire host panel. Same value types as `background`.
 
 #### `cropMarks: boolean`
