@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ComponentHost from '../components/ComponentHost';
 import { IHostProps } from '../components/ComponentHost';
-
+export { IHostProps }
 
 /**
  * Decorator to concisely insert the <ComponentHost> helpers.
