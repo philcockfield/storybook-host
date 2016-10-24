@@ -5,4 +5,3 @@ import * as color from './color';
 
 export * from './util'
 export { R, color, css, Radium }
-export { NumberOrString } from '../types'

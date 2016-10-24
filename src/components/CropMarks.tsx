@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Radium, css, NumberOrString } from '../common';
+import { Radium, css } from '../common';
 import CropMark from './CropMark';
 
 export interface ICropMarksProps {
-  width?: NumberOrString;
-  height?: NumberOrString;
-  background?: NumberOrString;
+  width?: number | string;
+  height?: number | string;
+  background?: number | string;
   cropMarkColor?: string;
   cropMarksVisible?: boolean;
   border?: string;

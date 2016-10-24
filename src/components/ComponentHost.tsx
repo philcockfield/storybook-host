@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { R, Radium, css, NumberOrString, color } from '../common';
+import { R, Radium, css, color } from '../common';
 import { AlignEdge } from '../common/alignment';
 import AlignmentContainer from './AlignmentContainer';
 import CropMarks from './CropMarks';
@@ -10,10 +10,10 @@ const RED = 'rgba(255, 0, 0, 0.1)';
 export interface IHostProps {
   title?: string;
   hr?: boolean;
-  padding?: NumberOrString | Array<number>;
+  padding?: number | string | Array<number>;
   align?: AlignEdge;
-  width?: NumberOrString;
-  height?: NumberOrString;
+  width?: number | string;
+  height?: number | string;
   background?: string | number | boolean;
   backdrop?: string | number | boolean;
   cropMarks?: boolean;
@@ -143,12 +143,12 @@ function isDark(color: tinycolorInstance): boolean {
 }
 
 
-function formatMarginPadding(value: NumberOrString | Array<number>): NumberOrString {
+function formatMarginPadding(value: number | string | Array<number>): number | string {
   if (R.is(Array, value)) {
     return (value as Array<number>)
       .slice(0, 4)
       .map(n => `${n}px`)
       .join(' ');
   }
-  return value as NumberOrString;
+  return value as number | string;
 }

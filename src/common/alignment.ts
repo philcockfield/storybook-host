@@ -1,16 +1,9 @@
 import * as R from 'ramda';
+import { AlignEdge } from '../types';
 
+export { AlignEdge }
 export type AlignHorizontal = 'left' | 'center' | 'right'
 export type AlignVertical = 'top' | 'middle' | 'bottom'
-export type AlignEdge =
-  'left' | 'center' | 'right' |
-  'top' | 'middle' | 'bottom' |
-  'left top' | 'left middle' | 'left bottom' |
-  'center top' | 'center middle' | 'center bottom' |
-  'right top' | 'right middle' | 'right bottom' |
-  'top left' | 'middle left' | 'bottom left' |
-  'top center' | 'middle center' | 'bottom center' |
-  'top right' | 'middle right' | 'bottom right'
 
 const HORIZONTAL: Array<AlignHorizontal> = ['left', 'center', 'right'];
 const VERTICAL: Array<AlignVertical> = ['top', 'middle', 'bottom'];
