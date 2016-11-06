@@ -20,7 +20,9 @@
     "ramda": "^0.22.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "^1.4.1",
+    "mobx": "^2.6.0",
+    "mobx-react-devtools": "^4.2.9"
   },
   "devDependencies": {
     "@kadira/storybook": "2.28.1",
@@ -36,8 +38,6 @@
     "chai": "^3.5.0",
     "js-babel": "^6.1.0",
     "js-typescript": "^2.2.0",
-    "mobx": "^2.6.0",
-    "mobx-react-devtools": "^4.2.9",
     "mocha": "^3.0.2"
   },
   "repository": {
