@@ -8,6 +8,7 @@ import MobXDevTools from 'mobx-react-devtools';
 const RED = 'rgba(255, 0, 0, 0.1)';
 
 export interface IHostProps {
+  mobXDevTools?: boolean;
   title?: string;
   hr?: boolean;
   padding?: number | string | Array<number>;
@@ -34,6 +35,7 @@ export interface IComponentHostProps {
 const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
   let {
     story,
+    mobXDevTools = true,
     title,
     align,
     width,
@@ -120,7 +122,9 @@ const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
           </CropMarks>
         </AlignmentContainer>
       </div>
-      <MobXDevTools position={{ bottom: -1, right: -1 }} />
+      {mobXDevTools &&
+        <MobXDevTools position={{ bottom: -1, right: -1 }} />
+      }
     </div>
   );
 });
