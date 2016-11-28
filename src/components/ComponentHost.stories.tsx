@@ -35,7 +35,14 @@ storiesOf(STORY_TITLE, module)
     return el;
   });
 
-
+storiesOf(STORY_TITLE, module)
+  .addDecorator(host({
+    title: 'Foo',
+    mobXDevTools: false,
+  }))
+  .add('No mobXDevTools', () => {
+    return el;
+  });
 
 storiesOf(STORY_TITLE, module)
   .addDecorator(host({ title: 'Foo', backdrop: true }))
@@ -64,7 +71,3 @@ storiesOf(STORY_TITLE, module)
 storiesOf(STORY_TITLE, module)
   .addDecorator(host({ title: 'Foo', backdrop: -0.1, background: 1, border: -0.3 }))
   .add('backdrop: -0.1, background: 1', () => el);
-
-
-
-
