@@ -15,6 +15,7 @@
     "prepublish": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
+    "@kadira/storybook-addon-knobs": "1.4.1",
     "mobx-react": "^3.5.8",
     "radium": "^0.18.1",
     "ramda": "^0.22.1",
@@ -26,7 +27,6 @@
   },
   "devDependencies": {
     "@kadira/storybook": "2.28.1",
-    "@kadira/storybook-addon-knobs": "1.4.1",
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.32",
     "@types/node": "^6.0.46",
