@@ -17,15 +17,11 @@
   "dependencies": {
     "@kadira/storybook-addon-knobs": "1.7.1",
     "@types/tinycolor2": "^1.1.0",
-    "@types/react": "^0.14.43",
-    "@types/react-dom": "^0.14.18",
     "mobx": "^2.7.0",
     "mobx-react": "^4.0.4",
     "mobx-react-devtools": "^4.2.10",
     "radium": "^0.18.1",
     "ramda": "^0.23.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
@@ -39,6 +35,10 @@
     "js-babel": "^6.1.0",
     "js-typescript": "^2.2.0",
     "mocha": "^3.2.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^0.14.43",
+    "react": "^0.14.7 || ^15.0.0"
   },
   "repository": {
     "type": "git",
