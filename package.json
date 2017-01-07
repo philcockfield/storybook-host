@@ -15,30 +15,30 @@
     "prepublish": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
-    "@kadira/storybook-addon-knobs": "1.4.1",
-    "mobx-react": "^3.5.8",
+    "@kadira/storybook-addon-knobs": "1.7.1",
+    "@types/tinycolor2": "^1.1.0",
+    "mobx": "^2.7.0",
+    "mobx-react": "^4.0.4",
+    "mobx-react-devtools": "^4.2.10",
     "radium": "^0.18.1",
-    "ramda": "^0.22.1",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "tinycolor2": "^1.4.1",
-    "mobx": "^2.6.0",
-    "mobx-react-devtools": "^4.2.9"
+    "ramda": "^0.23.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "@kadira/storybook": "2.28.1",
+    "@kadira/storybook": "2.35.2",
     "@types/chai": "^3.4.34",
-    "@types/mocha": "^2.2.32",
-    "@types/node": "^6.0.46",
+    "@types/mocha": "^2.2.36",
+    "@types/node": "^6.0.58",
     "@types/radium": "^0.18.19",
     "@types/ramda": "0.0.2",
     "@types/react": "^0.14.43",
     "@types/react-dom": "^0.14.18",
-    "@types/tinycolor": "^1.1.27",
     "chai": "^3.5.0",
     "js-babel": "^6.1.0",
     "js-typescript": "^2.2.0",
-    "mocha": "^3.0.2"
+    "mocha": "^3.2.0"
   },
   "repository": {
     "type": "git",
