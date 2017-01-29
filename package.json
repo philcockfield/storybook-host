@@ -10,8 +10,7 @@
     "tdd": "npm run test -- --reporter min --watch",
     "lint": "node ./node_modules/tslint/bin/tslint 'src/**/*.ts{,x}' --format verbose",
     "build:typescript": "rm -rf ./lib && node ./node_modules/typescript/bin/tsc",
-    "build:babel": "node ./node_modules/babel-cli/bin/babel ./lib -d ./lib",
-    "build": "npm run build:typescript && npm run build:babel",
+    "build": "npm run build:typescript",
     "prepublish": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
@@ -32,10 +31,12 @@
     "@types/radium": "^0.18.19",
     "@types/ramda": "0.0.2",
     "@types/react": "^0.14.43",
+    "@types/react-dom": "^0.14.21",
     "chai": "^3.5.0",
-    "js-babel": "^6.1.0",
-    "js-typescript": "^2.2.0",
-    "mocha": "^3.2.0"
+    "js-typescript": "^2.2.1",
+    "mocha": "^3.2.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0"
