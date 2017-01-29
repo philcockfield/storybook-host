@@ -11,7 +11,7 @@ export interface IHostProps {
   mobXDevTools?: boolean;
   title?: string;
   hr?: boolean;
-  padding?: number | string | Array<number>;
+  padding?: number | string | number[];
   align?: AlignEdge;
   width?: number | string;
   height?: number | string;
@@ -33,7 +33,7 @@ export interface IComponentHostProps {
  * A host container for components under test.
  */
 const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
-  let {
+  const {
     story,
     mobXDevTools = true,
     title,
@@ -43,10 +43,10 @@ const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
     padding = 50,
     background,
     backdrop = 'white',
-    hr,
     cropMarks = true,
     border = 0,
   } = props;
+  let { hr } = props;
 
   // Default values.
   hr = hr === false ? false : true;
@@ -147,11 +147,11 @@ function isDark(color: tinycolorInstance): boolean {
 }
 
 
-function formatMarginPadding(value: number | string | Array<number>): number | string {
+function formatMarginPadding(value: number | string | number[]): number | string {
   if (R.is(Array, value)) {
-    return (value as Array<number>)
+    return (value as number[])
       .slice(0, 4)
-      .map(n => `${n}px`)
+      .map((n) => `${n}px`)
       .join(' ');
   }
   return value as number | string;
