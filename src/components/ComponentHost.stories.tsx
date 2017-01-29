@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf, host } from '..';
 
-const STORY_TITLE = 'helpers.storybook';
+const TITLE = 'helpers.storybook';
 
 const el = (
   <div style={{
@@ -12,7 +12,7 @@ const el = (
   }}>Hello</div>
 );
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({
     title: 'A host container for components under test.',
     align: 'center bottom',
@@ -35,7 +35,7 @@ storiesOf(STORY_TITLE, module)
     return el;
   });
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({
     title: 'Foo',
     mobXDevTools: false,
@@ -44,30 +44,30 @@ storiesOf(STORY_TITLE, module)
     return el;
   });
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({ title: 'Foo', backdrop: true }))
   .add('backdrop: true (RED)', () => el);
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({ title: 'Foo', backdrop: '#2196F3' }))
   .add('backdrop: blue', () => el);
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({ title: 'Foo', backdrop: -0.1 }))
   .add('backdrop: -0.1', () => el);
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({ title: 'Foo', backdrop: -0.5 }))
   .add('backdrop: -0.5', () => el);
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({ title: 'Foo', backdrop: -0.8 }))
   .add('backdrop: -0.8', () => el);
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({ title: 'Foo' }))
   .add('backdrop: none (white)', () => el);
 
-storiesOf(STORY_TITLE, module)
+storiesOf(TITLE, module)
   .addDecorator(host({ title: 'Foo', backdrop: -0.1, background: 1, border: -0.3 }))
   .add('backdrop: -0.1, background: 1', () => el);
