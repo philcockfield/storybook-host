@@ -1,25 +1,38 @@
 import * as React from 'react';
 import { storiesOf, host } from '..';
 
-const STORY_TITLE = 'helpers.storybook';
+const STORY = 'helpers.storybook';
 
-const el = (
-  <div style={{
+
+export interface IFooProps {
+  style?: any;
+}
+const Foo = ({ style }: IFooProps) => {
+  const base = {
+    position: 'relative',
     boxSizing: 'border-box',
     padding: 10,
-    width: '100%',
-    height: '100%',
-  }}>Hello</div>
-);
+    backgroundColor: 'rgba(255, 0, 0, 0.1)', /* RED */
+  };
+  const styles = {
+    ...base,
+    ...style,
+  };
+  return (
+    <div style={styles}>Hello</div>
+  );
+};
 
-storiesOf(STORY_TITLE, module)
+
+
+
+storiesOf(STORY, module)
   .addDecorator(host({
     title: 'A host container for components under test.',
     align: 'center bottom',
     height: '80%',
     width: 400,
     // hr: false,
-
     // padding: '0 200px',
     // padding: [20, 20, 35, 20],
 
@@ -31,43 +44,75 @@ storiesOf(STORY_TITLE, module)
     border: -0.1,
     // border: true,
   }))
-  .add('MyComponent', () => {
-    return el;
-  });
+  .add('MyComponent', () => <Foo />);
 
-storiesOf(STORY_TITLE, module)
+
+storiesOf(STORY, module)
   .addDecorator(host({
-    title: 'Foo',
+    title: 'Mobx Dev tools not showing.',
     mobXDevTools: false,
   }))
-  .add('No mobXDevTools', () => {
-    return el;
-  });
+  .add('No mobXDevTools', () => <Foo />);
 
-storiesOf(STORY_TITLE, module)
-  .addDecorator(host({ title: 'Foo', backdrop: true }))
-  .add('backdrop: true (RED)', () => el);
+storiesOf(STORY, module)
+  .addDecorator(host({ title: 'Backdrop set to a color with boolean.', backdrop: true }))
+  .add('backdrop: true (RED)', () => <Foo />);
 
-storiesOf(STORY_TITLE, module)
-  .addDecorator(host({ title: 'Foo', backdrop: '#2196F3' }))
-  .add('backdrop: blue', () => el);
+storiesOf(STORY, module)
+  .addDecorator(host({ title: 'Backdrop set to a hex color.', backdrop: '#2196F3' }))
+  .add('backdrop: blue', () => <Foo />);
 
-storiesOf(STORY_TITLE, module)
-  .addDecorator(host({ title: 'Foo', backdrop: -0.1 }))
-  .add('backdrop: -0.1', () => el);
+storiesOf(STORY, module)
+  .addDecorator(host({ title: 'Backdrop set to a color with number (-1..1).', backdrop: -0.1 }))
+  .add('backdrop: -0.1', () => <Foo />);
 
-storiesOf(STORY_TITLE, module)
-  .addDecorator(host({ title: 'Foo', backdrop: -0.5 }))
-  .add('backdrop: -0.5', () => el);
+storiesOf(STORY, module)
+  .addDecorator(host({ title: 'Backdrop set to a color with number (-1..1).', backdrop: -0.5 }))
+  .add('backdrop: -0.5', () => <Foo />);
 
-storiesOf(STORY_TITLE, module)
-  .addDecorator(host({ title: 'Foo', backdrop: -0.8 }))
-  .add('backdrop: -0.8', () => el);
+storiesOf(STORY, module)
+  .addDecorator(host({ title: 'Backdrop set to a color with number (-1..1).', backdrop: -0.8 }))
+  .add('backdrop: -0.8', () => <Foo />);
 
-storiesOf(STORY_TITLE, module)
-  .addDecorator(host({ title: 'Foo' }))
-  .add('backdrop: none (white)', () => el);
+storiesOf(STORY, module)
+  .addDecorator(host({ title: 'Backdrop not set (none).' }))
+  .add('backdrop: none (white)', () => <Foo />);
 
-storiesOf(STORY_TITLE, module)
-  .addDecorator(host({ title: 'Foo', backdrop: -0.1, background: 1, border: -0.3 }))
-  .add('backdrop: -0.1, background: 1', () => el);
+storiesOf(STORY, module)
+  .addDecorator(host({
+    title: 'Component background set with number.',
+    backdrop: -0.1,
+    background: 1,
+    border: -0.3,
+  }))
+  .add('backdrop: -0.1, background: 1', () => <Foo />);
+
+
+storiesOf(STORY, module)
+  .addDecorator(host({
+    title: 'Width height set to 100%',
+    width: '100%',
+    height: '100%',
+  }))
+  .add('width/height: 100%', () => <Foo />);
+
+
+storiesOf(STORY, module)
+  .addDecorator(host({
+    title: 'Flex applied to component container (boolean)',
+    width: '100%',
+    height: '100%',
+    flex: true,
+  }))
+  .add('flex: true', () => <Foo />);
+
+storiesOf(STORY, module)
+  .addDecorator(host({
+    title: 'Flex applied to component container, with child filling available space',
+    width: '100%',
+    height: '100%',
+    flex: true,
+  }))
+  .add('flex: fill', () => <Foo style={{ flex: 1 }} />);
+
+

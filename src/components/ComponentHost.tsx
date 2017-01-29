@@ -7,11 +7,19 @@ import MobXDevTools from 'mobx-react-devtools';
 
 const RED = 'rgba(255, 0, 0, 0.1)';
 
+// export interface IHostFlex {
+//   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+//   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+//   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
+//   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
+//   alignContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'stretch';
+// }
+
 export interface IHostProps {
   mobXDevTools?: boolean;
   title?: string;
   hr?: boolean;
-  padding?: number | string | Array<number>;
+  padding?: number | string | number[];
   align?: AlignEdge;
   width?: number | string;
   height?: number | string;
@@ -20,9 +28,10 @@ export interface IHostProps {
   cropMarks?: boolean;
   border?: string | number | boolean; // Number between -1 (black) and 1 (white).
   styles?: any; // NB: For inserting global <styles>.
+  flex?: boolean;
 }
 
-export interface IComponentHostProps {
+export interface IComponentHostProps extends IHostProps {
   story: Function;
 }
 
@@ -32,8 +41,8 @@ export interface IComponentHostProps {
 /**
  * A host container for components under test.
  */
-const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
-  let {
+const ComponentHost = Radium((props: IComponentHostProps) => {
+  const {
     story,
     mobXDevTools = true,
     title,
@@ -43,10 +52,11 @@ const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
     padding = 50,
     background,
     backdrop = 'white',
-    hr,
     cropMarks = true,
     border = 0,
+    flex,
   } = props;
+  let { hr } = props;
 
   // Default values.
   hr = hr === false ? false : true;
@@ -100,6 +110,10 @@ const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
     },
   });
 
+  const flexStyle = {} as any;
+  if (flex !== undefined) {
+    flexStyle.display = 'flex';
+  }
 
   return (
     <div style={styles.base}>
@@ -117,7 +131,9 @@ const ComponentHost = Radium((props: IComponentHostProps & IHostProps) => {
             background={componentBackground as string}
             cropMarkColor={cropMarkColor}
             cropMarksVisible={cropMarks}
-            border={componentBorder}>
+            border={componentBorder}
+            style={flexStyle}
+            >
             {story()}
           </CropMarks>
         </AlignmentContainer>
@@ -147,11 +163,11 @@ function isDark(color: tinycolorInstance): boolean {
 }
 
 
-function formatMarginPadding(value: number | string | Array<number>): number | string {
+function formatMarginPadding(value: number | string | number[]): number | string {
   if (R.is(Array, value)) {
-    return (value as Array<number>)
+    return (value as number[])
       .slice(0, 4)
-      .map(n => `${n}px`)
+      .map((n) => `${n}px`)
       .join(' ');
   }
   return value as number | string;

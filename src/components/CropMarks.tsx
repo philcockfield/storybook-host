@@ -10,6 +10,7 @@ export interface ICropMarksProps {
   cropMarksVisible?: boolean;
   border?: string;
   children?: any;
+  style?: any;
 }
 
 
@@ -25,11 +26,13 @@ export const CropMarks = Radium(({
   cropMarksVisible = true,
   border,
   children,
+  style,
 
 }: ICropMarksProps) => {
 
   const styles = css({
     base: {
+      // display: 'flex',
       position: 'relative',
       boxSizing: 'border-box',
       background,
@@ -44,7 +47,7 @@ export const CropMarks = Radium(({
 
   if (cropMarksVisible) {
     return (
-      <div style={styles.base}>
+      <div style={[styles.base, css(style)]}>
         {children}
         <CropMark { ...props } edge='topLeft' />
         <CropMark { ...props } edge='topRight' />

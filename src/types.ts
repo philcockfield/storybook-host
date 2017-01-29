@@ -6,4 +6,4 @@ export type AlignEdge =
   'right top' | 'right middle' | 'right bottom' |
   'top left' | 'middle left' | 'bottom left' |
   'top center' | 'middle center' | 'bottom center' |
-  'top right' | 'middle right' | 'bottom right'
+  'top right' | 'middle right' | 'bottom right';

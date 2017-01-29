@@ -2,13 +2,13 @@ import * as R from 'ramda';
 import { AlignEdge } from '../types';
 
 export { AlignEdge }
-export type AlignHorizontal = 'left' | 'center' | 'right'
-export type AlignVertical = 'top' | 'middle' | 'bottom'
+export type AlignHorizontal = 'left' | 'center' | 'right';
+export type AlignVertical = 'top' | 'middle' | 'bottom';
 
-const HORIZONTAL: Array<AlignHorizontal> = ['left', 'center', 'right'];
-const VERTICAL: Array<AlignVertical> = ['top', 'middle', 'bottom'];
+const HORIZONTAL: AlignHorizontal[] = ['left', 'center', 'right'];
+const VERTICAL: AlignVertical[] = ['top', 'middle', 'bottom'];
 
-const contains = (array: string[], value: string) => R.any(item => item === value, array);
+const contains = (array: string[], value: string) => R.any((item) => item === value, array);
 const isVertical = (value: string) => contains(VERTICAL, value);
 const isHorizontal = (value: string) => contains(HORIZONTAL, value);
 

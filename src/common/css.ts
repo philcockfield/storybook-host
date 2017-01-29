@@ -2,6 +2,7 @@ import * as R from 'ramda';
 import { isBlank, isPlainObject, toNumber } from './util';
 
 
+
 /**
  * Takes an image path and breaks it into it's components pieces
  * providing 1x/2x versions of the image.
@@ -20,8 +21,8 @@ export const expandImagePath = (path: string) => {
   if (parts.length < 2) {
     throw new Error(`An image must have a file extension. [path: ${path}]`);
   }
-  fileName = parts[ 0 ];
-  const extension = parts[ 1 ];
+  fileName = parts[0];
+  const extension = parts[1];
 
   // Finish up.
   return {
@@ -54,7 +55,7 @@ export interface IImageOptions {
 export const image = (
   image1x: string | undefined,
   image2x: string | undefined,
-  options: IImageOptions = { width: 10, height: 10 }
+  options: IImageOptions = { width: 10, height: 10 },
 ) => {
 
   const { width, height } = options;
@@ -78,7 +79,7 @@ export const image = (
 
 const mergeAndReplace = (key: string, value: any, target: any) => {
   Object.assign(target, value);
-  delete target[ key ];
+  delete target[key];
   return target;
 };
 
@@ -87,10 +88,10 @@ const mergeAndReplace = (key: string, value: any, target: any) => {
 const formatImage = (
   key: string,
   value: Array<string | number | undefined>,
-  target: any
+  target: any,
 ) => {
   // Wrangle parameters.
-  let [ image1x, image2x, width, height ] = value;
+  let [image1x, image2x, width, height] = value; // tslint:disable-line
 
   if (R.is(Number, image2x)) {
     height = width;
@@ -114,10 +115,10 @@ const formatImage = (
 
 export const toPositionEdges = (
   key: string,
-  value: any = undefined
+  value: any = undefined,
 ): {
   position: string,
-  top: number | void, right: number | void, bottom: number | void, left: number | void
+  top: number | void, right: number | void, bottom: number | void, left: number | void,
 } | void => {
 
   if (value === undefined || value === null) { return undefined; }
@@ -133,7 +134,7 @@ export const toPositionEdges = (
   let left: number | void;
 
   const getEdge = (index: number): number | void => {
-    const edge = edges[ index ];
+    const edge = edges[index];
     if (edge === null || edge === 'null' || edge === '') { return undefined; }
     return edge;
   };
@@ -178,7 +179,7 @@ export const toPositionEdges = (
 
 
 export const formatPositionEdges = (key: string, target: any) => {
-  const styles = toPositionEdges(key, target[ key ]);
+  const styles = toPositionEdges(key, target[key]);
   mergeAndReplace(key, styles, target);
 };
 
@@ -219,10 +220,10 @@ const formatAbsoluteCenter = (key: string, value: string | boolean | number, tar
 const addVendorPrefix = (key: string, value: string, target: any) => {
   const capitalized = `${key.charAt(0).toUpperCase()}${key.slice(1)}`;
   const styles = {};
-  styles[ key ] = value;
-  styles[ `Webkit${capitalized}` ] = value;
-  styles[ `Moz${capitalized}` ] = value;
-  styles[ `ms${capitalized}` ] = value;
+  styles[key] = value;
+  styles[`Webkit${capitalized}`] = value;
+  styles[`Moz${capitalized}`] = value;
+  styles[`ms${capitalized}`] = value;
   Object.assign(target, styles);
 };
 
@@ -237,12 +238,12 @@ const addVendorPrefix = (key: string, value: string, target: any) => {
  * Helpers for constructing a CSS object.
  */
 export const css: any = (styles: any = {}) => {
-  Object.keys(styles).forEach(key => {
-    const value = styles[ key ];
+  Object.keys(styles).forEach((key) => {
+    const value = styles[key];
     if (R.isNil(value)) {
-      delete styles[ key ];
+      delete styles[key];
     } else if (isPlainObject(value)) {
-      styles[ key ] = css(value); // <== RECURSION.
+      styles[key] = css(value); // <== RECURSION.
     } else {
       switch (key) {
         case 'Image': formatImage(key, value, styles); break;

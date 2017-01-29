@@ -1,41 +1,42 @@
 {
   "name": "storybook-host",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A React Storybook decorator with helpful display options for hosting components under test",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "start": "npm run build && start-storybook -p 3000",
+    "ui": "start-storybook -p 3000 -c ./.storybook -s ./assets",
+    "start": "npm run build && npm run ui",
     "test": "./node_modules/mocha/bin/mocha --require ts-node/register --watch-extensions ts,tsx 'src/**/*.test.ts{,x}'",
     "tdd": "npm run test -- --reporter min --watch",
     "lint": "node ./node_modules/tslint/bin/tslint 'src/**/*.ts{,x}' --format verbose",
     "build:typescript": "rm -rf ./lib && node ./node_modules/typescript/bin/tsc",
-    "build:babel": "node ./node_modules/babel-cli/bin/babel ./lib -d ./lib",
-    "build": "npm run build:typescript && npm run build:babel",
+    "build": "npm run build:typescript",
     "prepublish": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
     "@kadira/storybook-addon-knobs": "1.7.1",
     "@types/tinycolor2": "^1.1.0",
-    "mobx": "^2.7.0",
-    "mobx-react": "^4.0.4",
-    "mobx-react-devtools": "^4.2.10",
+    "mobx": "^3.0.2",
+    "mobx-react": "^4.1.0",
+    "mobx-react-devtools": "^4.2.11",
     "radium": "^0.18.1",
     "ramda": "^0.23.0",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "@kadira/storybook": "2.35.2",
+    "@kadira/storybook": "2.35.3",
     "@types/chai": "^3.4.34",
-    "@types/mocha": "^2.2.36",
-    "@types/node": "^6.0.58",
-    "@types/radium": "^0.18.19",
-    "@types/ramda": "0.0.2",
-    "@types/react": "^0.14.43",
+    "@types/mocha": "^2.2.38",
+    "@types/radium": "^0.18.20",
+    "@types/ramda": "0.0.3",
+    "@types/react": "^15.0.4",
+    "@types/react-dom": "^0.14.21",
     "chai": "^3.5.0",
-    "js-babel": "^6.1.0",
-    "js-typescript": "^2.2.0",
-    "mocha": "^3.2.0"
+    "js-typescript": "^2.2.1",
+    "mocha": "^3.2.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0"

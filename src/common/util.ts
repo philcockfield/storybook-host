@@ -1,7 +1,6 @@
 import * as R from 'ramda';
 
 
-
 /**
  * Returns a copy of the array with falsey values removed.
  * Removes:
@@ -13,9 +12,9 @@ import * as R from 'ramda';
  * @return {Array}.
  */
 export const compact = (value: any[]) => R.pipe(
-                                    R.reject(R.isNil),
-                                    R.reject(R.isEmpty)
-                                  )(value);
+  R.reject(R.isNil),
+  R.reject(R.isEmpty),
+)(value);
 
 
 
