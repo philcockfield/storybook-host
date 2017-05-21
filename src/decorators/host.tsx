@@ -15,3 +15,4 @@ export function host(props: IHostProps) {
     return <ComponentHost story={story} {...props} />;
   };
 }
+
