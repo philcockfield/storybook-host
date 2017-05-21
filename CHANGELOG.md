@@ -6,12 +6,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - YYYY-MM-DD
 #### Added
 #### Changed
-- Updated NPM references.
-- Change default `mobXDevTools` to `false`.
 #### Deprecated
 #### Removed
 #### Fixed
 #### Security
+
+
+## [1.1.0] - 2017-05-21
+#### Changed
+- Updated NPM references.
+- Change default `mobXDevTools` to `false`.
 
 
 ## [1.0.14] - 2017-01-30
