@@ -37,7 +37,7 @@ export interface IComponentHostProps extends IHostProps {
 const ComponentHost = Radium((props: IComponentHostProps) => {
   const {
     story,
-    mobXDevTools = true,
+    mobXDevTools = false,
     title,
     align,
     width,
