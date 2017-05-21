@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@kadira/storybook-addon-knobs": "1.7.1",
+    "@kadira/storybook-addons": "^1.6.1",
     "@types/tinycolor2": "^1.1.1",
     "mobx": "^3.1.9",
     "mobx-react": "^4.1.8",

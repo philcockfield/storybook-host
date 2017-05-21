@@ -30,7 +30,7 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@kadira/storybook-addon-links/-/storybook-addon-links-1.0.1.tgz#566136a8020b60f82f146ef37d93b0c86de969d8"
 
-"@kadira/storybook-addons@^1.5.0":
+"@kadira/storybook-addons@^1.5.0", "@kadira/storybook-addons@^1.6.1":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@kadira/storybook-addons/-/storybook-addons-1.6.1.tgz#e84923d298b38c7c1231ddebc219dfb87b2858a6"
 
@@ -138,11 +138,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
-  version "15.0.4"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.4.tgz#97aedbba00448a137331aa8450232124aeb8d426"
-
-"@types/react@^15.0.24":
+"@types/react@*", "@types/react@^15.0.24":
   version "15.0.24"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.24.tgz#8a75299dc37906df327c18ca918bf97a55e7123b"
 
