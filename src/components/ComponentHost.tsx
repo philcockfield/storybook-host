@@ -7,13 +7,6 @@ import MobXDevTools from 'mobx-react-devtools';
 
 const RED = 'rgba(255, 0, 0, 0.1)';
 
-// export interface IHostFlex {
-//   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-//   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-//   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
-//   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
-//   alignContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'stretch';
-// }
 
 export interface IHostProps {
   mobXDevTools?: boolean;
@@ -32,7 +25,7 @@ export interface IHostProps {
 }
 
 export interface IComponentHostProps extends IHostProps {
-  story: Function;
+  story: () => any;
 }
 
 
@@ -44,7 +37,7 @@ export interface IComponentHostProps extends IHostProps {
 const ComponentHost = Radium((props: IComponentHostProps) => {
   const {
     story,
-    mobXDevTools = true,
+    mobXDevTools = false,
     title,
     align,
     width,
@@ -133,7 +126,7 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
             cropMarksVisible={cropMarks}
             border={componentBorder}
             style={flexStyle}
-            >
+          >
             {story()}
           </CropMarks>
         </AlignmentContainer>

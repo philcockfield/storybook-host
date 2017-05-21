@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { AlignEdge } from '../types';
 
-export { AlignEdge }
+export { AlignEdge };
 export type AlignHorizontal = 'left' | 'center' | 'right';
 export type AlignVertical = 'top' | 'middle' | 'bottom';
 
