@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ComponentHost from '../components/ComponentHost';
 import { IHostProps } from '../components/ComponentHost';
-export { IHostProps }
+export { IHostProps };
 
 /**
  * Decorator to concisely insert the <ComponentHost> helpers.
@@ -11,7 +11,7 @@ export { IHostProps }
  *      .add(...)
  */
 export function host(props: IHostProps) {
-  return (story: Function, context: any) => {
+  return (story: () => any, context: any) => {
     return <ComponentHost story={story} {...props} />;
   };
 }

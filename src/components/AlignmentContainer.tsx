@@ -4,7 +4,7 @@ import { AlignEdge, edges } from '../common/alignment';
 
 
 export interface IAlignmentContainerProps {
-  children?: Object;
+  children?: object;
   align?: AlignEdge;
 }
 
@@ -82,8 +82,8 @@ export const AlignmentContainer = Radium(({
   });
 
   return (
-    <div style={ styles.base }>
-      { children }
+    <div style={styles.base}>
+      {children}
     </div>
   );
 });
