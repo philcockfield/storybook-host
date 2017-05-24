@@ -1,7 +1,7 @@
 # storybook-host
 [![Build Status](https://travis-ci.org/philcockfield/storybook-host.svg?branch=master)](https://travis-ci.org/philcockfield/storybook-host)
 
-A [React Storybook](https://getstorybook.io/) decorator with powerful display options for 
+A [React Storybook](https://storybooks.js.org/) decorator with powerful display options for 
 hosting, sizing and framing your components.
 
 
