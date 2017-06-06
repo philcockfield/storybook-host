@@ -18,7 +18,7 @@ hosting, sizing and framing your components.
 ## Usage
 
 ```js
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
 import { host } from 'storybook-host';
 import { MyComponent } from './MyComponent'
 
