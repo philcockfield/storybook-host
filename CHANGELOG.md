@@ -12,6 +12,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Security
 
 
+## [3.0.0] - 2017-06-07
+#### Changed
+- Update to Storybook 3.0.
+
+
+
 ## [1.1.0] - 2017-05-21
 #### Changed
 - Updated NPM references.
