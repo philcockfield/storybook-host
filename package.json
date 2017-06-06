@@ -14,7 +14,7 @@
     "prepublish": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
-    "@storybook/addon-knobs": "^3.0.0-alpha.4",
+    "@storybook/addon-knobs": "^3.0.0",
     "@types/tinycolor2": "^1.1.1",
     "mobx": "^3.1.9",
     "mobx-react": "^4.1.8",
@@ -24,7 +24,7 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "@storybook/react": "^3.0.0-alpha.4",
+    "@storybook/react": "^3.0.0",
     "@types/chai": "^3.5.2",
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.21",
