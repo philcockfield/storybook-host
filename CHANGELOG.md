@@ -6,12 +6,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - YYYY-MM-DD
 #### Added
 #### Changed
-- Updated to latest versions of Storybook / Knobs.
 #### Deprecated
 #### Removed
-- Remove MobX and MobX Devtools.
 #### Fixed
 #### Security
+
+
+## [4.0.0] - 2017-08-08
+#### Changed
+- Updated to latest versions of Storybook / Knobs.
+#### Removed
+- Remove MobX and MobX Devtools.
 
 
 ## [3.0.0] - 2017-06-07
