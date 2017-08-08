@@ -47,12 +47,6 @@ storiesOf(STORY, module)
   .add('MyComponent', () => <Foo />);
 
 
-storiesOf(STORY, module)
-  .addDecorator(host({
-    title: 'Mobx Dev tools not showing.',
-    mobXDevTools: false,
-  }))
-  .add('No mobXDevTools', () => <Foo />);
 
 storiesOf(STORY, module)
   .addDecorator(host({ title: 'Backdrop set to a color with boolean.', backdrop: true }))
