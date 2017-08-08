@@ -3,13 +3,11 @@ import { R, Radium, css, color } from '../common';
 import { AlignEdge } from '../common/alignment';
 import AlignmentContainer from './AlignmentContainer';
 import CropMarks from './CropMarks';
-import MobXDevTools from 'mobx-react-devtools';
 
 const RED = 'rgba(255, 0, 0, 0.1)';
 
 
 export interface IHostProps {
-  mobXDevTools?: boolean;
   title?: string;
   hr?: boolean;
   padding?: number | string | number[];
@@ -37,7 +35,6 @@ export interface IComponentHostProps extends IHostProps {
 const ComponentHost = Radium((props: IComponentHostProps) => {
   const {
     story,
-    mobXDevTools = false,
     title,
     align,
     width,
@@ -131,9 +128,6 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
           </CropMarks>
         </AlignmentContainer>
       </div>
-      {mobXDevTools &&
-        <MobXDevTools position={{ bottom: -1, right: -1 }} />
-      }
     </div>
   );
 });

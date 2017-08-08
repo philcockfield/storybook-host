@@ -1,6 +1,5 @@
 import * as React from 'react';
-import ComponentHost from '../components/ComponentHost';
-import { IHostProps } from '../components/ComponentHost';
+import ComponentHost, { IHostProps } from '../components/ComponentHost';
 export { IHostProps };
 
 /**
