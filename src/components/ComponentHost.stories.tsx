@@ -1,5 +1,6 @@
+import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import { storiesOf, host } from '..';
+import { host } from '..';
 
 const STORY = 'helpers.storybook';
 
