@@ -12,6 +12,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Security
 
 
+## [4.1.0] - 2017-08-14
+#### Removed
+- Removed unused exports: `storiesOf`, `Story`, `knobs`.
+
+
 ## [4.0.0] - 2017-08-08
 #### Changed
 - Updated to latest versions of Storybook / Knobs.
