@@ -42,7 +42,6 @@ storiesOf('helpers.storybook', module)
 
 ```js
 host({
-  mobXDevTools: <boolean>,
   title: <string>,
   hr: <boolean>,
   align: <string>,
