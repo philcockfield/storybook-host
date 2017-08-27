@@ -42,7 +42,6 @@ storiesOf('helpers.storybook', module)
 
 ```js
 host({
-  mobXDevTools: <boolean>,
   title: <string>,
   hr: <boolean>,
   align: <string>,
@@ -55,9 +54,6 @@ host({
   padding: <number | string>,
 });
 ```
-#### `mobXDevTools: boolean`
-Flag indicating if the mobXDevTools at the bottom should be shown.  Default: `true`.
-
 #### `title: string`
 The title display that is displayed at the top of the window.
 Use this to to name and provide a decription of the component under test.
