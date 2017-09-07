@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./lib",
-    "target": "es6",
+    "target": "es5",
     "inlineSourceMap": true,
     "module": "commonjs",
     "moduleResolution": "node",
@@ -19,16 +19,23 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "skipDefaultLibCheck": true,
+    "noUnusedLocals": true,
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "dom"
+    ]
   },
-  "exclude": [
-    "node_modules",
-    "lib"
-  ],
   "include": [
-    "typings/index.d.ts",
     "src/**/*.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib"
   ]
 }
