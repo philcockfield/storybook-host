@@ -12,6 +12,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Security
 
 
+## [4.1.1] - 2017-09-08
+#### Changed
+- TypeScript building to ES5 (target `/lib` folder).
+
+
 ## [4.1.0] - 2017-08-14
 #### Removed
 - Removed unused exports: `storiesOf`, `Story`, `knobs`.
