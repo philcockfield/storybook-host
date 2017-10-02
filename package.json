@@ -45,7 +45,7 @@
   },
   "files": [
     "lib/",
-    "assets/"
+    "assets/css/normalize.css"
   ],
   "repository": {
     "type": "git",
