@@ -43,6 +43,10 @@
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0"
   },
+  "files": [
+    "lib/",
+    "assets/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/philcockfield/storybook-host"
