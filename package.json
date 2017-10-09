@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@storybook/addon-knobs": "^3.2.0",
+    "@types/radium": "^0.18.22",
+    "@types/ramda": "0.24.6",
     "@types/tinycolor2": "^1.4.0",
     "radium": "^0.19.4",
     "ramda": "^0.24.1",
@@ -25,8 +27,6 @@
     "@types/chai": "^4.0.2",
     "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.19",
-    "@types/radium": "^0.18.22",
-    "@types/ramda": "0.24.6",
     "@types/react": "^15.6.1",
     "@types/react-dom": "^15.5.2",
     "@types/storybook__addon-knobs": "^3.0.1",
