@@ -41,7 +41,7 @@
     "typescript": "^2.4.2"
   },
   "peerDependencies": {
-    "react": "^0.14.7 || ^15.0.0"
+    "react": "^0.14.7 || ^15.0.0 || ^16.0.0"
   },
   "files": [
     "lib/",
