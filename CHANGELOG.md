@@ -11,6 +11,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Fixed
 #### Security
 
+## [4.1.5] - 2017-12-30
+#### Changed
+- Updated package.json to latest NPM refs.
+- Added React `^16.0.0` to `peerDependencies`.
+
+
 
 ## [4.1.2] - 2017-12-30
 #### Changed
