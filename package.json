@@ -1,18 +1,15 @@
 {
   "name": "storybook-host",
   "version": "4.1.4",
-  "description":
-    "A React Storybook decorator with helpful display options for hosting components under test",
+  "description": "A React Storybook decorator with helpful display options for hosting components under test",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
     "ui": "start-storybook -p 3000 -c ./.storybook -s ./assets",
     "start": "npm run build && npm run ui",
-    "test":
-      "./node_modules/mocha/bin/mocha --require ts-node/register --watch-extensions ts,tsx 'src/**/*.test.ts{,x}'",
+    "test": "./node_modules/mocha/bin/mocha --require ts-node/register --watch-extensions ts,tsx 'src/**/*.test.ts{,x}'",
     "tdd": "npm run test -- --reporter min --watch",
-    "lint":
-      "node ./node_modules/tslint/bin/tslint 'src/**/*.ts{,x}' --format verbose",
+    "lint": "node ./node_modules/tslint/bin/tslint 'src/**/*.ts{,x}' --format verbose",
     "build": "rm -rf ./lib && node ./node_modules/typescript/bin/tsc",
     "prepublish": "npm run lint && npm test && npm run build"
   },
@@ -44,13 +41,18 @@
     "typescript": "^2.4.2"
   },
   "peerDependencies": {
-    "react": "^0.14.7 || ^15.0.0"
+    "react": "^0.14.7 || ^15.0.0 || ^16.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/philcockfield/storybook-host"
   },
-  "keywords": ["react", "react-storybook", "helper", "ui"],
+  "keywords": [
+    "react",
+    "react-storybook",
+    "helper",
+    "ui"
+  ],
   "author": {
     "name": "Phil Cockfield",
     "email": "phil@cockfield.net",
