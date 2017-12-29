@@ -12,6 +12,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Security
 
 
+## [4.1.2] - 2017-12-30
+#### Changed
+- Updated package.json to latest NPM refs.
+- Added React `^16.0.0` to `peerDependencies`.
+
+
+
 ## [4.1.1] - 2017-09-08
 #### Changed
 - TypeScript building to ES5 (target `/lib` folder).
