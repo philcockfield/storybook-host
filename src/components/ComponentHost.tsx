@@ -1,11 +1,9 @@
-import * as React from 'react';
-import { R, Radium, css, color } from '../common';
+import { React, R, Radium, css, color } from '../common';
 import { AlignEdge } from '../common/alignment';
 import AlignmentContainer from './AlignmentContainer';
 import CropMarks from './CropMarks';
 
 const RED = 'rgba(255, 0, 0, 0.1)';
-
 
 export interface IHostProps {
   title?: string;
@@ -25,9 +23,6 @@ export interface IHostProps {
 export interface IComponentHostProps extends IHostProps {
   story: () => any;
 }
-
-
-
 
 /**
  * A host container for components under test.
@@ -107,11 +102,11 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
 
   return (
     <div style={styles.base}>
-      {title &&
+      {title && (
         <div style={styles.header}>
           <h2 style={styles.h2}>{title}</h2>
         </div>
-      }
+      )}
       {props.styles}
       <div style={styles.body}>
         <AlignmentContainer align={align}>
@@ -133,28 +128,30 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
 });
 export default ComponentHost;
 
-
-
 function formatColor(value?: string | number | boolean): string | void {
-  if (value === undefined) { return; }
-  if (R.is(Number, value)) { return color.toGrayHex(value as number); }
-  if (value === true) { return RED; }
+  if (value === undefined) {
+    return;
+  }
+  if (R.is(Number, value)) {
+    return color.toGrayHex(value as number);
+  }
+  if (value === true) {
+    return RED;
+  }
   return value as string;
 }
 
-
 function isDark(color: tinycolorInstance): boolean {
-  return color.getAlpha() < 0.4
-    ? false
-    : color.getBrightness() < 130;
+  return color.getAlpha() < 0.4 ? false : color.getBrightness() < 130;
 }
 
-
-function formatMarginPadding(value: number | string | number[]): number | string {
+function formatMarginPadding(
+  value: number | string | number[],
+): number | string {
   if (R.is(Array, value)) {
     return (value as number[])
       .slice(0, 4)
-      .map((n) => `${n}px`)
+      .map(n => `${n}px`)
       .join(' ');
   }
   return value as number | string;

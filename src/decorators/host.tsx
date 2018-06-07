@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { React } from '../common';
 import ComponentHost, { IHostProps } from '../components/ComponentHost';
 export { IHostProps };
 
@@ -14,4 +14,3 @@ export function host(props: IHostProps) {
     return <ComponentHost story={story} {...props} />;
   };
 }
-
