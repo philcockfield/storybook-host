@@ -1,4 +1,4 @@
-import * as R from 'ramda';
+import { R } from './libs';
 
 /**
  * Returns a copy of the array with falsey values removed.

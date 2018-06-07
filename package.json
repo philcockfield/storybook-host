@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "ui": "start-storybook -p 3000 -c ./.storybook -s ./assets",
+    "ui": "start-storybook -p 3000 -c ./.storybook -s ./static",
     "start": "npm run build && npm run ui",
     "test": "./node_modules/mocha/bin/mocha --require ts-node/register --watch-extensions ts,tsx 'src/**/*.test.ts{,x}'",
     "tdd": "npm run test -- --reporter min --watch",
