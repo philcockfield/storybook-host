@@ -1,5 +1,5 @@
 import { React } from '../common';
-import ComponentHost, { IHostProps } from '../components/ComponentHost';
+import { ComponentHost, IHostProps } from '../components/ComponentHost';
 export { IHostProps };
 
 /**

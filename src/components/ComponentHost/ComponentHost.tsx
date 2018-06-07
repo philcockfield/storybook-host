@@ -1,7 +1,7 @@
-import { React, R, css, color } from '../common';
-import { AlignEdge } from '../common/alignment';
-import AlignmentContainer from './AlignmentContainer';
-import CropMarks from './CropMarks';
+import { React, R, css, color } from '../../common';
+import { AlignEdge } from '../../common/alignment';
+import { AlignmentContainer } from '../AlignmentContainer';
+import { CropMarks } from '../CropMarks';
 
 const RED = 'rgba(255, 0, 0, 0.1)';
 
@@ -132,8 +132,6 @@ export const ComponentHost = (props: IComponentHostProps) => {
     </div>
   );
 };
-
-export default ComponentHost;
 
 /**
  * INTERNAL

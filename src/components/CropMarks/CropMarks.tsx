@@ -1,5 +1,5 @@
-import { React, css, GlamorValue } from '../common';
-import CropMark from './CropMark';
+import { React, css, GlamorValue } from '../../common';
+import { CropMark } from './CropMark';
 
 export interface ICropMarksProps {
   width?: number | string;
@@ -55,5 +55,3 @@ export const CropMarks = (props: ICropMarksProps) => {
     return <div style={styles.base}>{children}</div>;
   }
 };
-
-export default CropMarks;

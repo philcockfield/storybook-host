@@ -1,5 +1,5 @@
-import { React, css } from '../common';
-import { AlignEdge, edges } from '../common/alignment';
+import { React, css } from '../../common';
+import { AlignEdge, edges } from '../../common/alignment';
 
 export interface IAlignmentContainerProps {
   children?: React.ReactNode;
@@ -78,5 +78,3 @@ export const AlignmentContainer = (props: IAlignmentContainerProps) => {
 
   return <div {...styles.base}>{props.children}</div>;
 };
-
-export default AlignmentContainer;

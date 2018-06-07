@@ -1,4 +1,4 @@
-import { React, css } from '../common';
+import { React, css } from '../../common';
 
 export interface ICropMarkProps {
   edge: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
@@ -62,5 +62,3 @@ export const CropMark = (props: ICropMarkProps) => {
   }
   return el;
 };
-
-export default CropMark;
