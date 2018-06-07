@@ -9,7 +9,9 @@
     "start": "npm run build && npm run ui",
     "test": "./node_modules/mocha/bin/mocha --require ts-node/register --watch-extensions ts,tsx 'src/**/*.test.ts{,x}'",
     "tdd": "npm run test -- --reporter min --watch",
-    "lint": "node ./node_modules/tslint/bin/tslint 'src/**/*.ts{,x}' --format verbose",
+    "prettier": "node ./node_modules/prettier/bin-prettier all --write 'src/**/*.ts{,x}'",
+    "tslint": "node ./node_modules/tslint/bin/tslint 'src/**/*.ts{,x}' --format verbose --fix $@",
+    "lint": "npm run prettier && npm run tslint",
     "build": "rm -rf ./lib && node ./node_modules/typescript/bin/tsc",
     "prepublish": "npm run lint && npm test && npm run build"
   },
