@@ -1,25 +1,20 @@
-import * as React from 'react';
-import { Radium, css } from '../common';
-import { AlignEdge, edges } from '../common/alignment';
-
+import { React, css } from '../../common';
+import { AlignEdge, edges } from '../../common/alignment';
 
 export interface IAlignmentContainerProps {
-  children?: object;
+  children?: React.ReactNode;
   align?: AlignEdge;
 }
-
 
 /**
  * Flex-box container providing edge alignment of child content.
  */
-export const AlignmentContainer = Radium(({
-
-  children,
-  align = 'center top',
-
-}: IAlignmentContainerProps) => {
-
-  const { horizontal, vertical } = edges(align, 'center', 'top');
+export const AlignmentContainer = (props: IAlignmentContainerProps) => {
+  const { horizontal, vertical } = edges(
+    props.align || 'top center',
+    'center',
+    'top',
+  );
   let direction = '';
   let alignItems = '';
   let justifyContent = '';
@@ -71,20 +66,15 @@ export const AlignmentContainer = Radium(({
     alignItems = 'center';
   }
 
-  const styles = css({
-    base: {
+  const styles = {
+    base: css({
       alignItems,
       justifyContent,
       Absolute: 0,
       display: 'flex',
       flexDirection: direction,
-    },
-  });
+    }),
+  };
 
-  return (
-    <div style={styles.base}>
-      {children}
-    </div>
-  );
-});
-export default AlignmentContainer;
+  return <div {...styles.base}>{props.children}</div>;
+};

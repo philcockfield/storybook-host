@@ -1,7 +1,6 @@
-import * as R from 'ramda';
-import * as Radium from 'radium';
-import css from './css';
 import * as color from './color';
 
+export { color };
+export * from './libs';
 export * from './util';
-export { R, color, css, Radium };
+export * from './css';

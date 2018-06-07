@@ -1,11 +1,9 @@
-import * as React from 'react';
-import { R, Radium, css, color } from '../common';
-import { AlignEdge } from '../common/alignment';
-import AlignmentContainer from './AlignmentContainer';
-import CropMarks from './CropMarks';
+import { React, R, css, color } from '../../common';
+import { AlignEdge } from '../../common/alignment';
+import { AlignmentContainer } from '../AlignmentContainer';
+import { CropMarks } from '../CropMarks';
 
 const RED = 'rgba(255, 0, 0, 0.1)';
-
 
 export interface IHostProps {
   title?: string;
@@ -26,13 +24,10 @@ export interface IComponentHostProps extends IHostProps {
   story: () => any;
 }
 
-
-
-
 /**
  * A host container for components under test.
  */
-const ComponentHost = Radium((props: IComponentHostProps) => {
+export const ComponentHost = (props: IComponentHostProps) => {
   const {
     story,
     title,
@@ -70,35 +65,42 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
     componentBorder = `dashed 1px rgba(0, 0, 0, 0.2)`;
   }
 
-  const styles = css({
-    base: {
+  const styles = {
+    base: css({
       Absolute: 0,
       display: 'flex',
       flexDirection: 'column',
       background: backdropColor.toRgbString(),
-    },
-    header: {
+    }),
+    normalizeText: css({
+      // Copied in from `normalize.css` template.
+      fontFamily: 'sans-serif' /* 1 */,
+      lineHeight: 1.15 /* 2 */,
+      msTextSizeAdjust: '100%' /* 3 */,
+      WebkitTextSizeAdjust: '100%' /* 3 */,
+    }),
+    header: css({
       borderBottom: hr && `solid 1px ${cropMarkColor}`,
       paddingTop: 2,
       paddingBottom: hr && 15,
       marginLeft: 15,
       marginTop: 15,
       marginRight: 15,
-    },
-    h2: {
+    }),
+    h2: css({
       fontWeight: 200,
       fontSize: 20,
       padding: 0,
       margin: 0,
       color: titleColor,
-    },
-    body: {
+    }),
+    body: css({
       boxSizing: 'border-box',
       position: 'relative',
       flex: 1,
       margin: formatMarginPadding(padding),
-    },
-  });
+    }),
+  };
 
   const flexStyle = {} as any;
   if (flex !== undefined) {
@@ -106,14 +108,14 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
   }
 
   return (
-    <div style={styles.base}>
-      {title &&
-        <div style={styles.header}>
-          <h2 style={styles.h2}>{title}</h2>
+    <div {...css(styles.base, styles.normalizeText)}>
+      {title && (
+        <div {...styles.header}>
+          <h2 {...styles.h2}>{title}</h2>
         </div>
-      }
+      )}
       {props.styles}
-      <div style={styles.body}>
+      <div {...styles.body}>
         <AlignmentContainer align={align}>
           <CropMarks
             width={width}
@@ -130,31 +132,35 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
       </div>
     </div>
   );
-});
-export default ComponentHost;
+};
 
-
-
+/**
+ * INTERNAL
+ */
 function formatColor(value?: string | number | boolean): string | void {
-  if (value === undefined) { return; }
-  if (R.is(Number, value)) { return color.toGrayHex(value as number); }
-  if (value === true) { return RED; }
+  if (value === undefined) {
+    return;
+  }
+  if (R.is(Number, value)) {
+    return color.toGrayHex(value as number);
+  }
+  if (value === true) {
+    return RED;
+  }
   return value as string;
 }
 
-
 function isDark(color: tinycolorInstance): boolean {
-  return color.getAlpha() < 0.4
-    ? false
-    : color.getBrightness() < 130;
+  return color.getAlpha() < 0.4 ? false : color.getBrightness() < 130;
 }
 
-
-function formatMarginPadding(value: number | string | number[]): number | string {
+function formatMarginPadding(
+  value: number | string | number[],
+): number | string {
   if (R.is(Array, value)) {
     return (value as number[])
       .slice(0, 4)
-      .map((n) => `${n}px`)
+      .map(n => `${n}px`)
       .join(' ');
   }
   return value as number | string;

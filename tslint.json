@@ -1,7 +1,8 @@
 {
-  "extends": "tslint:latest",
-  "rulesDirectory": [
-    "./node_modules/tslint-react/rules"
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-prettier"
   ],
   "rules": {
     "no-consecutive-blank-lines": [
@@ -11,17 +12,20 @@
     "object-literal-sort-keys": false,
     "quotemark": [
       true,
-      "single"
+      "single",
+      "jsx-single"
     ],
     "jsx-no-lambda": true,
     "no-shadowed-variable": false,
-    "ordered-imports": [
-      false
-    ],
-    "only-arrow-functions": [
-      false
-    ],
-    "no-object-literal-type-assertion": false,
+    "ordered-imports": false,
+    "only-arrow-functions": false,
+    "no-empty-interface": false,
+    "interface-over-type-literal": false,
+    "jsx-alignment": false,
+    "member-ordering": false,
+    "object-literal-shorthand": false,
+    "max-classes-per-file": false,
+    "no-submodule-imports": false,
     "no-implicit-dependencies": false
   }
 }
