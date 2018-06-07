@@ -73,10 +73,11 @@ export const ComponentHost = (props: IComponentHostProps) => {
       background: backdropColor.toRgbString(),
     }),
     normalizeText: css({
+      // Copied in from `normalize.css` template.
       fontFamily: 'sans-serif' /* 1 */,
       lineHeight: 1.15 /* 2 */,
-      '-ms-text-size-adjust': '100%' /* 3 */,
-      '-webkit-text-size-adjust': '100%' /* 3 */,
+      msTextSizeAdjust: '100%' /* 3 */,
+      WebkitTextSizeAdjust: '100%' /* 3 */,
     }),
     header: css({
       borderBottom: hr && `solid 1px ${cropMarkColor}`,

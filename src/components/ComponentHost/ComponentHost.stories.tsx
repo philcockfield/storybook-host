@@ -1,25 +1,7 @@
-import { storiesOf } from '@storybook/react';
-import { React } from '../../common';
+import { React, storiesOf, Foo } from '../../test';
 import { host } from '../..';
 
-const STORY = 'helpers.storybook';
-
-export interface IFooProps {
-  style?: any;
-}
-const Foo = ({ style }: IFooProps) => {
-  const base = {
-    position: 'relative',
-    boxSizing: 'border-box',
-    padding: 10,
-    backgroundColor: 'rgba(255, 0, 0, 0.1)' /* RED */,
-  };
-  const styles = {
-    ...base,
-    ...style,
-  };
-  return <div style={styles}>Hello</div>;
-};
+const STORY = 'ComponentHost';
 
 storiesOf(STORY, module)
   .addDecorator(
