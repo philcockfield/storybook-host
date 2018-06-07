@@ -1,4 +1,4 @@
-import { React, R, Radium, css, color } from '../common';
+import { React, R, css, color } from '../common';
 import { AlignEdge } from '../common/alignment';
 import AlignmentContainer from './AlignmentContainer';
 import CropMarks from './CropMarks';
@@ -27,7 +27,7 @@ export interface IComponentHostProps extends IHostProps {
 /**
  * A host container for components under test.
  */
-const ComponentHost = Radium((props: IComponentHostProps) => {
+export const ComponentHost = (props: IComponentHostProps) => {
   const {
     story,
     title,
@@ -65,35 +65,35 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
     componentBorder = `dashed 1px rgba(0, 0, 0, 0.2)`;
   }
 
-  const styles = css({
-    base: {
+  const styles = {
+    base: css({
       Absolute: 0,
       display: 'flex',
       flexDirection: 'column',
       background: backdropColor.toRgbString(),
-    },
-    header: {
+    }),
+    header: css({
       borderBottom: hr && `solid 1px ${cropMarkColor}`,
       paddingTop: 2,
       paddingBottom: hr && 15,
       marginLeft: 15,
       marginTop: 15,
       marginRight: 15,
-    },
-    h2: {
+    }),
+    h2: css({
       fontWeight: 200,
       fontSize: 20,
       padding: 0,
       margin: 0,
       color: titleColor,
-    },
-    body: {
+    }),
+    body: css({
       boxSizing: 'border-box',
       position: 'relative',
       flex: 1,
       margin: formatMarginPadding(padding),
-    },
-  });
+    }),
+  };
 
   const flexStyle = {} as any;
   if (flex !== undefined) {
@@ -101,14 +101,14 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
   }
 
   return (
-    <div style={styles.base}>
+    <div {...styles.base}>
       {title && (
-        <div style={styles.header}>
-          <h2 style={styles.h2}>{title}</h2>
+        <div {...styles.header}>
+          <h2 {...styles.h2}>{title}</h2>
         </div>
       )}
       {props.styles}
-      <div style={styles.body}>
+      <div {...styles.body}>
         <AlignmentContainer align={align}>
           <CropMarks
             width={width}
@@ -125,9 +125,13 @@ const ComponentHost = Radium((props: IComponentHostProps) => {
       </div>
     </div>
   );
-});
+};
+
 export default ComponentHost;
 
+/**
+ * INTERNAL
+ */
 function formatColor(value?: string | number | boolean): string | void {
   if (value === undefined) {
     return;

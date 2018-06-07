@@ -1,4 +1,4 @@
-import { React, Radium, css } from '../common';
+import { React, css, GlamorValue } from '../common';
 import CropMark from './CropMark';
 
 export interface ICropMarksProps {
@@ -9,14 +9,14 @@ export interface ICropMarksProps {
   cropMarksVisible?: boolean;
   border?: string;
   children?: any;
-  style?: any;
+  style?: GlamorValue;
 }
 
 /**
  * Positions a set of crop-marks around it's contents.
  */
-export const CropMarks = Radium(
-  ({
+export const CropMarks = (props: ICropMarksProps) => {
+  const {
     width = 'auto',
     height = 'auto',
     background,
@@ -24,36 +24,36 @@ export const CropMarks = Radium(
     cropMarksVisible = true,
     border,
     children,
-    style,
-  }: ICropMarksProps) => {
-    const styles = css({
-      base: {
-        // display: 'flex',
-        position: 'relative',
-        boxSizing: 'border-box',
-        background,
-        width,
-        height,
-        border,
-      },
-    });
-    const props = {
-      color: cropMarkColor,
-    };
+  } = props;
 
-    if (cropMarksVisible) {
-      return (
-        <div style={[styles.base, css(style)]}>
-          {children}
-          <CropMark {...props} edge='topLeft' />
-          <CropMark {...props} edge='topRight' />
-          <CropMark {...props} edge='bottomLeft' />
-          <CropMark {...props} edge='bottomRight' />
-        </div>
-      );
-    } else {
-      return <div style={styles.base}>{children}</div>;
-    }
-  },
-);
+  const styles = {
+    base: css({
+      position: 'relative',
+      boxSizing: 'border-box',
+      background,
+      width,
+      height,
+      border,
+    }),
+  };
+
+  const cropMarkProps = {
+    color: cropMarkColor,
+  };
+
+  if (cropMarksVisible) {
+    return (
+      <div {...css(styles.base, props.style)}>
+        {children}
+        <CropMark {...cropMarkProps} edge='topLeft' />
+        <CropMark {...cropMarkProps} edge='topRight' />
+        <CropMark {...cropMarkProps} edge='bottomLeft' />
+        <CropMark {...cropMarkProps} edge='bottomRight' />
+      </div>
+    );
+  } else {
+    return <div style={styles.base}>{children}</div>;
+  }
+};
+
 export default CropMarks;

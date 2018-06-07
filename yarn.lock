@@ -231,12 +231,6 @@
   version "10.3.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.3.2.tgz#3840ec6c12556fdda6e0e6d036df853101d732a4"
 
-"@types/radium@^0.24.0":
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/@types/radium/-/radium-0.24.0.tgz#856d52c19ec0b81108400c0ef465c8e170d8ba8b"
-  dependencies:
-    "@types/react" "*"
-
 "@types/ramda@0.25.32":
   version "0.25.32"
   resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.25.32.tgz#46b8c5f4a2df76543e10f635606b5692da921497"
@@ -3258,13 +3252,6 @@ inline-style-prefixer@^3.0.6:
     bowser "^1.7.3"
     css-in-js-utils "^2.0.0"
 
-inline-style-prefixer@^4.0.0:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-4.0.2.tgz#d390957d26f281255fe101da863158ac6eb60911"
-  dependencies:
-    bowser "^1.7.3"
-    css-in-js-utils "^2.0.0"
-
 inquirer@3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-3.3.0.tgz#9dd2f2ad765dcab1ff0443b491442a20ba227dc9"
@@ -4838,14 +4825,6 @@ radium@^0.19.0:
     array-find "^1.0.0"
     exenv "^1.2.1"
     inline-style-prefixer "^2.0.5"
-    prop-types "^15.5.8"
-
-radium@^0.24.0:
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/radium/-/radium-0.24.0.tgz#32ca64e5cb8226cac3887d5eaf9a150516600de0"
-  dependencies:
-    exenv "^1.2.1"
-    inline-style-prefixer "^4.0.0"
     prop-types "^15.5.8"
 
 ramda@^0.25.0:

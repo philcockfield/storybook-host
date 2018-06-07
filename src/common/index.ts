@@ -1,6 +1,6 @@
-import * as css from './css';
 import * as color from './color';
 
-export { color, css };
-export * from './util';
+export { color };
 export * from './libs';
+export * from './util';
+export * from './css';
