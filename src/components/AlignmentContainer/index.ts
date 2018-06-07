@@ -1,1 +1,1 @@
-export * from './AlignmentContainer'
+export * from './AlignmentContainer';

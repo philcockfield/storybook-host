@@ -1,1 +1,1 @@
-export * from './ComponentHost'
+export * from './ComponentHost';
