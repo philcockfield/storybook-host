@@ -29,7 +29,7 @@ storiesOf('helpers.storybook', module)
       width: 400,
     }),
   )
-  .add('Component', () => <MyComponent />);
+  .add('MyComponent', () => <MyComponent />);
 ```
 
 ![Screen Shot](https://cloud.githubusercontent.com/assets/185555/19583290/dc0041fc-9797-11e6-9893-62bb03822eca.png)
