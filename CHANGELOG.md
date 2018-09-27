@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.1] - 2018-09-27
+
+#### Changed
+
+- Updated ref versions.
+
+#### Fixed
+
+- [Fix disabled styles when cropMarks is set to false](https://github.com/philcockfield/storybook-host/pull/38) thanks to @itsdanielmatos
+
 ## [5.0.0] - 2018-06-08
 
 #### Changed
