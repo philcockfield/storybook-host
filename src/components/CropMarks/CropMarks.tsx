@@ -40,18 +40,17 @@ export const CropMarks = (props: ICropMarksProps) => {
   const cropMarkProps = {
     color: cropMarkColor,
   };
-
-  if (cropMarksVisible) {
-    return (
-      <div {...css(styles.base, props.style)}>
-        {children}
-        <CropMark {...cropMarkProps} edge='topLeft' />
-        <CropMark {...cropMarkProps} edge='topRight' />
-        <CropMark {...cropMarkProps} edge='bottomLeft' />
-        <CropMark {...cropMarkProps} edge='bottomRight' />
-      </div>
-    );
-  } else {
-    return <div style={styles.base}>{children}</div>;
-  }
+  return (
+    <div {...css(styles.base, props.style)}>
+      {children}
+      {cropMarksVisible && (
+        <React.Fragment>
+          <CropMark {...cropMarkProps} edge='topLeft' />
+          <CropMark {...cropMarkProps} edge='topRight' />
+          <CropMark {...cropMarkProps} edge='bottomLeft' />
+          <CropMark {...cropMarkProps} edge='bottomRight' />
+        </React.Fragment>
+      )}
+    </div>
+  );
 };
