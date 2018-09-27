@@ -150,7 +150,7 @@ function formatColor(value?: string | number | boolean): string | void {
   return value as string;
 }
 
-function isDark(color: tinycolorInstance): boolean {
+function isDark(color: tinycolor.Instance): boolean {
   return color.getAlpha() < 0.4 ? false : color.getBrightness() < 130;
 }
 
