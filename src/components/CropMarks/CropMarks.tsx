@@ -44,12 +44,12 @@ export const CropMarks = (props: ICropMarksProps) => {
     <div {...css(styles.base, props.style)}>
       {children}
       {cropMarksVisible && (
-        <React.Fragment>
+        <div>
           <CropMark {...cropMarkProps} edge='topLeft' />
           <CropMark {...cropMarkProps} edge='topRight' />
           <CropMark {...cropMarkProps} edge='bottomLeft' />
           <CropMark {...cropMarkProps} edge='bottomRight' />
-        </React.Fragment>
+        </div>
       )}
     </div>
   );
