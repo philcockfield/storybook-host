@@ -24,25 +24,25 @@
   },
   "devDependencies": {
     "@storybook/react": "^3.4.11",
-    "@types/chai": "^4.1.5",
+    "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.11.0",
-    "@types/ramda": "0.25.38",
-    "@types/react": "^16.4.14",
-    "@types/react-dom": "^16.0.7",
+    "@types/node": "^10.12.2",
+    "@types/ramda": "^0.26.0",
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "^16.0.9",
     "@types/storybook__addon-knobs": "^3.4.1",
     "@types/storybook__react": "^3.0.9",
     "babel-core": "^6.26.3",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "prettier": "^1.14.3",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.0.3"
+    "typescript": "^3.1.6"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0 || ^16.0.0"
