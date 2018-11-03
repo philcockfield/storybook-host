@@ -31,7 +31,6 @@
     "@types/ramda": "^0.26.0",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
-    "@types/storybook__addon-knobs": "^3.4.1",
     "@types/storybook__react": "^3.0.9",
     "babel-loader": "^8.0.4",
     "chai": "^4.2.0",
