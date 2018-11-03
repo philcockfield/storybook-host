@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.2] - 2018-11-03
+
+#### Fixed
+
+- PR #40: Fix backwards compatibility issue with React Fragments (thanks to @chadfawcett).
+- PR #42: Update dependencies to Storybook 4.x (thanks to @itsdanielmatos).
+
 ## [5.0.1] - 2018-09-27
 
 #### Changed

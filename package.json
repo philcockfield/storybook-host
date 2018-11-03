@@ -1,6 +1,6 @@
 {
   "name": "storybook-host",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A React Storybook decorator with helpful display options for hosting components under test",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
