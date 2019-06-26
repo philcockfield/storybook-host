@@ -3,21 +3,30 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [5.0.3] - 2018-11-03
 
+## [5.1.0] - 2019-06-27
+#### Fixed
+
+- PR #44: Max width prop (thanks to @duncanmcdougall).
+- PR #46: Bump js-yaml from 3.12.0 to 3.13.1 (the 🤖 did it).
+- PR #44: feat: allow developer to specific flex properties on component host and allow storybook 5+ parameter config (thanks to @frederickfogerty).
+
+#### Changed
+- Updated refs, now on version 5x of storybook.
+
+
+
+## [5.0.3] - 2018-11-03
 #### Fixed
 
 - PR #40: Fix backwards compatibility issue with React Fragments (thanks to @chadfawcett).
 - PR #42: Update dependencies to Storybook 4.x (thanks to @itsdanielmatos).
 
 ## [5.0.1] - 2018-09-27
-
 #### Changed
-
 - Updated ref versions.
 
 #### Fixed
-
 - [Fix disabled styles when cropMarks is set to false](https://github.com/philcockfield/storybook-host/pull/38) thanks to @itsdanielmatos
 
 ## [5.0.0] - 2018-06-08
