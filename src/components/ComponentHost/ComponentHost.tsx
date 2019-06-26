@@ -22,6 +22,7 @@ export interface IHostOptions {
   align?: AlignEdge;
   width?: number | string;
   height?: number | string;
+  maxWidth?: number | string;
   background?: string | number | boolean;
   backdrop?: string | number | boolean;
   cropMarks?: boolean;
@@ -67,6 +68,7 @@ export const ComponentHost = (props: IComponentHostProps) => {
     align,
     width,
     height,
+    maxWidth,
     padding = 50,
     background,
     backdrop = 'white',
@@ -165,6 +167,7 @@ export const ComponentHost = (props: IComponentHostProps) => {
           <CropMarks
             width={width}
             height={height}
+            maxWidth={maxWidth}
             background={componentBackground as string}
             cropMarkColor={cropMarkColor}
             cropMarksVisible={cropMarks}
