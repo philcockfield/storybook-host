@@ -1,11 +1,21 @@
-import { React, R, css, color } from '../../common';
+import { React, R, css, color, GlamorValue } from '../../common';
 import { AlignEdge } from '../../common/alignment';
 import { AlignmentContainer } from '../AlignmentContainer';
 import { CropMarks } from '../CropMarks';
+import { CSSProperties } from 'react';
+import { StoryContext } from '@storybook/addons';
 
 const RED = 'rgba(255, 0, 0, 0.1)';
 
-export interface IHostProps {
+type FlexConfig = {
+  flexDirection?: CSSProperties['flexDirection'];
+  justifyContent?: CSSProperties['justifyContent'];
+  alignItems?: CSSProperties['alignItems'];
+  flexWrap?: CSSProperties['flexWrap'];
+  alignContent?: CSSProperties['alignContent'];
+};
+
+export interface IHostOptions {
   title?: string;
   hr?: boolean;
   padding?: number | string | number[];
@@ -18,19 +28,42 @@ export interface IHostProps {
   cropMarks?: boolean;
   border?: string | number | boolean; // Number between -1 (black) and 1 (white).
   styles?: any; // NB: For inserting global <styles>.
-  flex?: boolean;
+  flex?: boolean | FlexConfig;
 }
 
-export interface IComponentHostProps extends IHostProps {
-  story: () => any;
+export interface IComponentHostProps {
+  story: (context: StoryContext) => any;
+  context: StoryContext;
+  options: IHostOptions;
+  parameters: IHostOptions;
 }
 
 /**
  * A host container for components under test.
  */
 export const ComponentHost = (props: IComponentHostProps) => {
+  const combinedOptions = {
+    ...props.options,
+    ...props.parameters,
+    flex: (() => {
+      if (props.parameters.flex === false) {
+        // parameters overrides
+        return false;
+      }
+      if (isObject(props.options.flex) || isObject(props.parameters.flex)) {
+        return {
+          ...(isObject(props.options.flex) ? props.options.flex : {}),
+          ...(isObject(props.parameters.flex) ? props.parameters.flex : {}),
+        };
+      } else if (props.options.flex || props.parameters.flex) {
+        // handle flex: true
+        return true;
+      }
+      return false;
+    })(),
+  };
+
   const {
-    story,
     title,
     align,
     width,
@@ -42,8 +75,10 @@ export const ComponentHost = (props: IComponentHostProps) => {
     cropMarks = true,
     border = 0,
     flex,
-  } = props;
-  let { hr } = props;
+  } = combinedOptions;
+
+  const { story } = props;
+  let { hr } = combinedOptions;
 
   // Default values.
   hr = hr === false ? false : true;
@@ -82,9 +117,9 @@ export const ComponentHost = (props: IComponentHostProps) => {
       WebkitTextSizeAdjust: '100%' /* 3 */,
     }),
     header: css({
-      borderBottom: hr && `solid 1px ${cropMarkColor}`,
+      borderBottom: hr ? `solid 1px ${cropMarkColor}` : undefined,
       paddingTop: 2,
-      paddingBottom: hr && 15,
+      paddingBottom: hr ? 15 : undefined,
       marginLeft: 15,
       marginTop: 15,
       marginRight: 15,
@@ -104,10 +139,20 @@ export const ComponentHost = (props: IComponentHostProps) => {
     }),
   };
 
-  const flexStyle = {} as any;
-  if (flex !== undefined) {
-    flexStyle.display = 'flex';
-  }
+  const flexStyle: GlamorValue = (() => {
+    if (!flex) {
+      return {};
+    }
+    if (flex === true) {
+      return {
+        display: 'flex',
+      };
+    }
+    return {
+      display: 'flex',
+      ...flex,
+    };
+  })();
 
   return (
     <div {...css(styles.base, styles.normalizeText)}>
@@ -116,7 +161,7 @@ export const ComponentHost = (props: IComponentHostProps) => {
           <h2 {...styles.h2}>{title}</h2>
         </div>
       )}
-      {props.styles}
+      {combinedOptions.styles}
       <div {...styles.body}>
         <AlignmentContainer align={align}>
           <CropMarks
@@ -129,7 +174,7 @@ export const ComponentHost = (props: IComponentHostProps) => {
             border={componentBorder}
             style={flexStyle}
           >
-            {story()}
+            {story(props.context)}
           </CropMarks>
         </AlignmentContainer>
       </div>
@@ -167,4 +212,8 @@ function formatMarginPadding(
       .join(' ');
   }
   return value as number | string;
+}
+
+function isObject(value: any): value is object {
+  return value !== null && typeof value === 'object';
 }

@@ -1,5 +1,6 @@
 import { React, css } from '../../common';
 import { AlignEdge, edges } from '../../common/alignment';
+import { FlexDirectionProperty } from 'csstype';
 
 export interface IAlignmentContainerProps {
   children?: React.ReactNode;
@@ -15,7 +16,8 @@ export const AlignmentContainer = (props: IAlignmentContainerProps) => {
     'center',
     'top',
   );
-  let direction = '';
+  // tslint:disable-next-line
+  let direction: FlexDirectionProperty | undefined = undefined;
   let alignItems = '';
   let justifyContent = '';
 

@@ -121,3 +121,30 @@ storiesOf(STORY, module)
     }),
   )
   .add('flex: fill', () => <Foo style={{ flex: 1 }} />);
+
+storiesOf(STORY, module)
+  .addDecorator(
+    host({
+      title:
+        'Flex applied to component container, with children filling available space',
+      width: '100%',
+      height: '100%',
+    }),
+  )
+  .add(
+    'flex (column): fill',
+    () => (
+      <>
+        <Foo style={{ flex: 1, width: '50%' }} />
+        <Foo style={{ flex: 1, width: '80%', marginTop: 100 }} />
+      </>
+    ),
+    {
+      host: {
+        flex: {
+          flexDirection: 'column',
+          alignItems: 'center',
+        },
+      },
+    },
+  );
