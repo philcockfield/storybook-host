@@ -4,6 +4,7 @@ import { CropMark } from './CropMark';
 export interface ICropMarksProps {
   width?: number | string;
   height?: number | string;
+  maxWidth?: number | string;
   background?: number | string;
   cropMarkColor?: string;
   cropMarksVisible?: boolean;
@@ -19,6 +20,7 @@ export const CropMarks = (props: ICropMarksProps) => {
   const {
     width = 'auto',
     height = 'auto',
+    maxWidth = 'auto',
     background,
     cropMarkColor,
     cropMarksVisible = true,
@@ -33,6 +35,7 @@ export const CropMarks = (props: ICropMarksProps) => {
       background,
       width,
       height,
+      maxWidth,
       border,
     }),
   };
@@ -45,10 +48,10 @@ export const CropMarks = (props: ICropMarksProps) => {
       {children}
       {cropMarksVisible && (
         <div>
-          <CropMark {...cropMarkProps} edge='topLeft' />
-          <CropMark {...cropMarkProps} edge='topRight' />
-          <CropMark {...cropMarkProps} edge='bottomLeft' />
-          <CropMark {...cropMarkProps} edge='bottomRight' />
+          <CropMark {...cropMarkProps} edge="topLeft" />
+          <CropMark {...cropMarkProps} edge="topRight" />
+          <CropMark {...cropMarkProps} edge="bottomLeft" />
+          <CropMark {...cropMarkProps} edge="bottomRight" />
         </div>
       )}
     </div>

@@ -83,6 +83,10 @@ The width to lock the component at, eg: `400` (number as pixels) or `400px` or `
 
 The height to lock the component at, eg: `200` (number as pixels) or `200px` or `100%`.
 
+#### `maxWidth: number | string | undefined`
+
+The maximum width to restrict the component to, eg: `400` (number as pixels) or `400px` or `100%`.
+
 #### `background: boolean | number | string`
 
 The background color to draw behind the component.

@@ -92,6 +92,16 @@ storiesOf(STORY, module)
 storiesOf(STORY, module)
   .addDecorator(
     host({
+      title: 'maxWidth set to 400px',
+      width: '100%',
+      maxWidth: 400,
+    }),
+  )
+  .add('maxWidth: 400px', () => <Foo />);
+
+storiesOf(STORY, module)
+  .addDecorator(
+    host({
       title: 'Flex applied to component container (boolean)',
       width: '100%',
       height: '100%',

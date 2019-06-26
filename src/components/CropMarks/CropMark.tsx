@@ -2,9 +2,9 @@ import { React, css } from '../../common';
 
 export interface ICropMarkProps {
   edge: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
-  offset: number;
-  color: string;
-  size: number;
+  offset?: number;
+  color?: string;
+  size?: number;
 }
 
 /**
