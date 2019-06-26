@@ -115,9 +115,9 @@ export const ComponentHost = (props: IComponentHostProps) => {
       WebkitTextSizeAdjust: '100%' /* 3 */,
     }),
     header: css({
-      borderBottom: hr && `solid 1px ${cropMarkColor}`,
+      borderBottom: hr ? `solid 1px ${cropMarkColor}` : undefined,
       paddingTop: 2,
-      paddingBottom: hr && 15,
+      paddingBottom: hr ? 15 : undefined,
       marginLeft: 15,
       marginTop: 15,
       marginRight: 15,
