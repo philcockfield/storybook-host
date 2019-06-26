@@ -3,6 +3,7 @@ import { AlignEdge } from '../../common/alignment';
 import { AlignmentContainer } from '../AlignmentContainer';
 import { CropMarks } from '../CropMarks';
 import { CSSProperties } from 'react';
+import { StoryContext } from '@storybook/addons';
 
 const RED = 'rgba(255, 0, 0, 0.1)';
 
@@ -14,7 +15,7 @@ type FlexConfig = {
   alignContent?: CSSProperties['alignContent'];
 };
 
-export interface IHostProps {
+export interface IHostOptions {
   title?: string;
   hr?: boolean;
   padding?: number | string | number[];
@@ -29,16 +30,39 @@ export interface IHostProps {
   flex?: boolean | FlexConfig;
 }
 
-export interface IComponentHostProps extends IHostProps {
-  story: () => any;
+export interface IComponentHostProps {
+  story: (context: StoryContext) => any;
+  context: StoryContext;
+  options: IHostOptions;
+  parameters: IHostOptions;
 }
 
 /**
  * A host container for components under test.
  */
 export const ComponentHost = (props: IComponentHostProps) => {
+  const combinedOptions = {
+    ...props.options,
+    ...props.parameters,
+    flex: (() => {
+      if (props.parameters.flex === false) {
+        // parameters overrides
+        return false;
+      }
+      if (isObject(props.options.flex) || isObject(props.parameters.flex)) {
+        return {
+          ...(isObject(props.options.flex) ? props.options.flex : {}),
+          ...(isObject(props.parameters.flex) ? props.parameters.flex : {}),
+        };
+      } else if (props.options.flex || props.parameters.flex) {
+        // handle flex: true
+        return true;
+      }
+      return false;
+    })(),
+  };
+
   const {
-    story,
     title,
     align,
     width,
@@ -49,8 +73,10 @@ export const ComponentHost = (props: IComponentHostProps) => {
     cropMarks = true,
     border = 0,
     flex,
-  } = props;
-  let { hr } = props;
+  } = combinedOptions;
+
+  const { story } = props;
+  let { hr } = combinedOptions;
 
   // Default values.
   hr = hr === false ? false : true;
@@ -133,7 +159,7 @@ export const ComponentHost = (props: IComponentHostProps) => {
           <h2 {...styles.h2}>{title}</h2>
         </div>
       )}
-      {props.styles}
+      {combinedOptions.styles}
       <div {...styles.body}>
         <AlignmentContainer align={align}>
           <CropMarks
@@ -145,7 +171,7 @@ export const ComponentHost = (props: IComponentHostProps) => {
             border={componentBorder}
             style={flexStyle}
           >
-            {story()}
+            {story(props.context)}
           </CropMarks>
         </AlignmentContainer>
       </div>
@@ -183,4 +209,8 @@ function formatMarginPadding(
       .join(' ');
   }
   return value as number | string;
+}
+
+function isObject(value: any): value is object {
+  return value !== null && typeof value === 'object';
 }

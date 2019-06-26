@@ -1,6 +1,7 @@
-import { React } from '../common';
-import { ComponentHost, IHostProps } from '../components/ComponentHost';
-export { IHostProps };
+import * as React from 'react';
+import { ComponentHost, IHostOptions } from '../components/ComponentHost';
+export { IHostOptions as IHostProps };
+import { makeDecorator, StoryContext } from '@storybook/addons';
 
 /**
  * Decorator to concisely insert the <ComponentHost> helpers.
@@ -9,8 +10,21 @@ export { IHostProps };
  *      .addDecorator(host({ header: 'My Header' }))
  *      .add(...)
  */
-export function host(props: IHostProps) {
-  return (story: () => any, context: any) => {
-    return <ComponentHost story={story} {...props} />;
-  };
-}
+export const host = makeDecorator({
+  name: 'host',
+  parameterName: 'host',
+  wrapper: (
+    storyFn: (context: StoryContext) => any,
+    context,
+    { options, parameters },
+  ) => {
+    return (
+      <ComponentHost
+        story={storyFn}
+        context={context}
+        options={options || {}}
+        parameters={parameters || {}}
+      />
+    );
+  },
+});
