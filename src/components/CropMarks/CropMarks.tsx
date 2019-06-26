@@ -48,10 +48,10 @@ export const CropMarks = (props: ICropMarksProps) => {
       {children}
       {cropMarksVisible && (
         <div>
-          <CropMark {...cropMarkProps} edge="topLeft" />
-          <CropMark {...cropMarkProps} edge="topRight" />
-          <CropMark {...cropMarkProps} edge="bottomLeft" />
-          <CropMark {...cropMarkProps} edge="bottomRight" />
+          <CropMark {...cropMarkProps} edge='topLeft' />
+          <CropMark {...cropMarkProps} edge='topRight' />
+          <CropMark {...cropMarkProps} edge='bottomLeft' />
+          <CropMark {...cropMarkProps} edge='bottomRight' />
         </div>
       )}
     </div>
