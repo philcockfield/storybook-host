@@ -16,6 +16,7 @@
     "prepare": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
+    "@storybook/addons": "^5.1.9",
     "@types/tinycolor2": "^1.4.1",
     "glamor": "^2.20.40",
     "ramda": "^0.25.0",
@@ -23,15 +24,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
-    "@emotion/core": "0.13.1",
-    "@storybook/react": "^4.0.2",
+    "@emotion/core": "10.0.14",
+    "@storybook/react": "^5.1.9",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.2",
+    "@types/node": "^12.0.10",
     "@types/ramda": "^0.26.0",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
-    "@types/storybook__react": "^3.0.9",
+    "@types/storybook__react": "^4.0.2",
     "babel-loader": "^8.0.4",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
