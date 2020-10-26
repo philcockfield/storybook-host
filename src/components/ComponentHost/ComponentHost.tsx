@@ -109,13 +109,6 @@ export const ComponentHost = (props: IComponentHostProps) => {
       flexDirection: 'column',
       background: backdropColor.toRgbString(),
     }),
-    normalizeText: css({
-      // Copied in from `normalize.css` template.
-      fontFamily: 'sans-serif' /* 1 */,
-      lineHeight: 1.15 /* 2 */,
-      msTextSizeAdjust: '100%' /* 3 */,
-      WebkitTextSizeAdjust: '100%' /* 3 */,
-    }),
     header: css({
       borderBottom: hr ? `solid 1px ${cropMarkColor}` : undefined,
       paddingTop: 2,
@@ -155,7 +148,7 @@ export const ComponentHost = (props: IComponentHostProps) => {
   })();
 
   return (
-    <div {...css(styles.base, styles.normalizeText)}>
+    <div {...styles.base}>
       {title && (
         <div {...styles.header}>
           <h2 {...styles.h2}>{title}</h2>
