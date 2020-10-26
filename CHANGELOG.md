@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [5.2.0] - 2020-10-26
+#### Changed
+- Added `react@17.0.0` to list of supported peer dependencies ([issue 57](https://github.com/philcockfield/storybook-host/issues/57)). 
+
+
 ## [5.1.0] - 2019-06-27
 #### Fixed
 
